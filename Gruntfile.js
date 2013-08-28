@@ -4,13 +4,14 @@ module.exports = function (grunt) {
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-karma');
 
 
     // Default task.
-    grunt.registerTask('default', ['clean']);
+    grunt.registerTask('default', ['clean', 'karma']);
 
     // Travis CI task.
-    grunt.registerTask('travis', ['clean']);
+    grunt.registerTask('travis', ['clean', 'karma']);
 
     // Project configuration.
     grunt.initConfig({
@@ -44,7 +45,13 @@ module.exports = function (grunt) {
             }
         },
 
-        clean: {build: ['build']}
+        clean: {build: ['build']},
+
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
+        }
 
     });
 };
