@@ -5,10 +5,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-contrib-jade');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
 
     // Default task.
-    grunt.registerTask('default', ['clean', 'karma']);
+    grunt.registerTask('default', ['clean', 'karma', 'jade', 'compass']);
 
     // Travis CI task.
     grunt.registerTask('travis', ['clean', 'karma']);
@@ -51,7 +53,39 @@ module.exports = function (grunt) {
             unit: {
                 configFile: 'karma.conf.js'
             }
+        },
+
+        jade: {
+            index: {
+                files: {
+                    "build/index.html": ["src/index.jade"]
+                },
+                options: {
+                    client: false,
+                    pretty: true
+                }
+            },
+            views: {
+                files: {
+                    'build/views': ['src/views/**/*.jade']
+                },
+                options: {
+                    client: false,
+                    pretty: true,
+                    basePath: 'src/views'
+                }
+            }
+        },
+
+        compass: {
+            dist: {
+                options: {
+                    sassDir: 'src/scss',
+                    cssDir: 'build/css'
+                }
+            }
         }
+
 
     });
 };
