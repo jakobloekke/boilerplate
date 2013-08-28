@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "name": "Boilerplate",
+  "author": "Jakob Løkke Madsen",
+  "license": "MIT",
+  "devDependencies": {},
+  "scripts": {
+      "test": "grunt travis --verbose"
+  }
+}
