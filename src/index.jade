@@ -1,0 +1,20 @@
+!!! 5
+
+//if lt IE 10
+    html.oldie#ng-app(ng-app='app')
+//[if gt IE 8]<!
+html(ng-app='app')
+    //<![endif]
+
+    head
+
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
+        base(href='/')
+
+        link(rel='stylesheet', type='text/css', href='/css/main.css')
+
+        script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        script(src='/js/app.js')
+
+    body(ng-controller='MainCtrl')
+        p Boilerplate

@@ -43,7 +43,7 @@ module.exports = function (grunt) {
             files: ['src/**/*', 'test/**/*'],
             tasks: ['default'],
             options: {
-                livereload: false
+                livereload: true
             }
         },
 
